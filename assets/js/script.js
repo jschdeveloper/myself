@@ -38,6 +38,16 @@ document.addEventListener('DOMContentLoaded', function() {
 let phoneClickCount = 0;
 const REQUIRED_CLICKS = 10;
 
+// Variables para el reto matemático
+let firstNumber, secondNumber, correctAnswer;
+
+function generateMathProblem() {
+    firstNumber = Math.floor(Math.random() * 9) + 1;  // Número entre 1 y 9
+    secondNumber = Math.floor(Math.random() * 9) + 1; // Número entre 1 y 9
+    correctAnswer = firstNumber + secondNumber;
+    return `${firstNumber} + ${secondNumber}`;
+}
+
 function updatePhoneElement(lang) {
     const contacts = translations[lang].contactInfo;
     const contactContainer = document.querySelector('[data-i18n-contact]');
@@ -80,6 +90,73 @@ function updatePhoneElement(lang) {
 function handlePhoneClick(lang) {
     phoneClickCount++;
     updatePhoneElement(lang);
+}
+
+function updateEmailElement(lang) {
+    const contacts = translations[lang].contactInfo;
+    const contactContainer = document.querySelector('[data-i18n-contact]');
+    
+    if (contactContainer) {
+        contactContainer.innerHTML = contacts.map(contact => {
+            if (contact.icon === 'bi-envelope') {
+                const mathProblem = generateMathProblem();
+                return `
+                    <div class="contact-item email-challenge">
+                        <i class="bi ${contact.icon}"></i>
+                        <div class="email-challenge-container">
+                            <div class="challenge-title">
+                                ${translations[lang].emailHiddenTitle}
+                            </div>
+                            <div class="challenge-text">
+                                ${translations[lang].emailHidden.replace('{sum}', mathProblem)}
+                            </div>
+                            <div class="challenge-input">
+                                <input type="number" 
+                                    placeholder="${translations[lang].emailPlaceholder}"
+                                    class="math-answer"
+                                >
+                                <button class="verify-btn" onclick="verifyAnswer('${lang}', '${contact.text}', '${contact.url}')">
+                                    ${translations[lang].emailSubmit}
+                                </button>
+                            </div>
+                            <div class="challenge-result"></div>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            return `
+                ${contact.url ? `<a href="${contact.url}" target="_blank" class="contact-item">` : '<div class="contact-item">'}
+                    <i class="bi ${contact.icon}"></i>
+                    <span>${contact.text}</span>
+                ${contact.url ? '</a>' : '</div>'}
+            `;
+        }).join('');
+    }
+}
+
+function verifyAnswer(lang, email, emailUrl) {
+    const answerInput = document.querySelector('.math-answer');
+    const resultDiv = document.querySelector('.challenge-result');
+    const challengeContainer = document.querySelector('.email-challenge-container');
+    
+    if (parseInt(answerInput.value) === correctAnswer) {
+        challengeContainer.innerHTML = `
+            <a href="${emailUrl}" class="contact-success">
+                <span>${email}</span>
+            </a>
+        `;
+    } else {
+        resultDiv.textContent = translations[lang].emailWrong;
+        resultDiv.classList.add('wrong');
+        answerInput.value = '';
+        
+        setTimeout(() => {
+            resultDiv.textContent = '';
+            resultDiv.classList.remove('wrong');
+            updateEmailElement(lang);
+        }, 2000);
+    }
 }
 
 // Modificar la función changeLanguage para usar updatePhoneElement
@@ -133,6 +210,7 @@ function changeLanguage(lang) {
 
     // Actualizar contacto usando la nueva función
     updatePhoneElement(lang);
+    updateEmailElement(lang);
 
     localStorage.setItem('language', lang);
     

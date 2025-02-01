@@ -105,10 +105,15 @@ const translations = {
             }
         ],
         profilePhotoAlt: "Foto de perfil",
-        phoneHidden: "¿Quieres ver el número? (Click aquí)",
-        clicksRemaining: "Faltan {n} clicks",
+        phoneHidden: "¿Quieres ver el número? (Clic aquí)",
+        clicksRemaining: "Faltan {n} clics",
         location: "Barcelona, España",
-        locationPrefix: "Ubicación: "
+        locationPrefix: "Ubicación: ",
+        emailHiddenTitle: "Si quieres ver el correo por favor resuelve esta suma:",
+        emailHidden: "{sum} = ?",
+        emailPlaceholder: "Escribe tu respuesta",
+        emailWrong: "¡Vuelve a intentarlo!",
+        emailSubmit: "Verificar"
     },
     en: {
         langES: "ES",
@@ -219,6 +224,11 @@ const translations = {
         phoneHidden: "Want to see the number? (Click here)",
         clicksRemaining: "{n} clicks remaining",
         location: "Barcelona, Spain",
-        locationPrefix: "Location: "
+        locationPrefix: "Location: ",
+        emailHiddenTitle: "If you want to see the email please solve this sum:",
+        emailHidden: "{sum} = ?",
+        emailPlaceholder: "Enter your answer",
+        emailWrong: "Try again!",
+        emailSubmit: "Verify"
     }
 }; 

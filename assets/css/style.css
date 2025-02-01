@@ -557,4 +557,84 @@ a.contact-item:hover::after {
 .location i {
     color: var(--primary-color);
     font-size: 1.1rem;
+}
+
+.email-challenge {
+    cursor: default;
+}
+
+.email-challenge-container {
+    flex: 1;
+}
+
+.challenge-title {
+    color: var(--text-color);
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+}
+
+.challenge-text {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    margin-bottom: 0.8rem;
+}
+
+.challenge-input {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.3rem;
+}
+
+.math-answer {
+    padding: 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background: var(--card-bg);
+    color: var(--text-color);
+    width: 100px;
+}
+
+.verify-btn {
+    padding: 0.5rem 1rem;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.verify-btn:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+.challenge-result {
+    height: 20px;
+    color: #ef4444;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.contact-success {
+    color: var(--text-color);
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.2s ease;
+}
+
+.contact-success:hover {
+    color: var(--primary-color);
+    transform: translateY(-1px);
+}
+
+.wrong {
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
 } 
