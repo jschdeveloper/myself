@@ -106,7 +106,9 @@ const translations = {
         ],
         profilePhotoAlt: "Foto de perfil",
         phoneHidden: "¿Quieres ver el número? (Click aquí)",
-        clicksRemaining: "Faltan {n} clicks"
+        clicksRemaining: "Faltan {n} clicks",
+        location: "Barcelona, España",
+        locationPrefix: "Ubicación: "
     },
     en: {
         langES: "ES",
@@ -215,6 +217,8 @@ const translations = {
         ],
         profilePhotoAlt: "Profile photo",
         phoneHidden: "Want to see the number? (Click here)",
-        clicksRemaining: "{n} clicks remaining"
+        clicksRemaining: "{n} clicks remaining",
+        location: "Barcelona, Spain",
+        locationPrefix: "Location: "
     }
 }; 
