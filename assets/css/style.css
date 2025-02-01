@@ -1249,4 +1249,64 @@ a.contact-item:hover::after {
     .project-card:hover {
         transform: translateY(-1px); /* Efecto más sutil en móvil */
     }
+}
+
+/* Estilos para el encabezado de sección y botón de toggle */
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.section-header h2 {
+    margin: 0;
+}
+
+.toggle-section {
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.toggle-section i {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.section.collapsed .toggle-section i {
+    transform: rotate(180deg);
+}
+
+.section-content {
+    transition: all 0.3s ease;
+    opacity: 1;
+    max-height: 2000px;
+    overflow: hidden;
+}
+
+.section.collapsed .section-content {
+    opacity: 0;
+    max-height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.section.collapsed .section-header {
+    margin-bottom: 0;
+    border-bottom: none;
+}
+
+/* Efecto hover para el botón */
+.toggle-section:hover {
+    color: var(--primary-color);
+    transform: translateY(-2px);
 } 

@@ -380,10 +380,82 @@ function initializeLeftFloatingMenu() {
     });
 }
 
-// Actualizar el DOMContentLoaded
-document.addEventListener('DOMContentLoaded', () => {
+// Función para el tema
+function initializeTheme() {
+    const themeToggle = document.getElementById('themeToggle');
+    if (!themeToggle) return;
+
+    // Establecer el tema inicial
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    const icon = themeToggle.querySelector('i');
+    if (icon) {
+        icon.className = savedTheme === 'dark' ? 'bi bi-sun' : 'bi bi-moon';
+    }
+
+    // Evento de click para cambiar el tema
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        
+        const icon = themeToggle.querySelector('i');
+        if (icon) {
+            icon.className = newTheme === 'dark' ? 'bi bi-sun' : 'bi bi-moon';
+        }
+    });
+}
+
+// Función para el selector de idioma
+function initializeLanguageSwitcher() {
+    const langButtons = document.querySelectorAll('.lang-btn');
     const currentLang = localStorage.getItem('language') || 'es';
-    changeLanguage(currentLang);
-    initializeShowMoreButton();
-    initializeLeftFloatingMenu();
+
+    langButtons.forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === currentLang);
+        
+        btn.addEventListener('click', () => {
+            const lang = btn.dataset.lang;
+            changeLanguage(lang);
+            localStorage.setItem('language', lang);
+            
+            langButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        });
+    });
+}
+
+// Función para los toggles de sección
+function initializeSectionToggles() {
+    const sections = document.querySelectorAll('.section');
+    
+    sections.forEach(section => {
+        const toggleButton = section.querySelector('.toggle-section');
+        if (!toggleButton) return;
+        
+        toggleButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            section.classList.toggle('collapsed');
+            
+            const isCollapsed = section.classList.contains('collapsed');
+            toggleButton.setAttribute('aria-label', 
+                isCollapsed ? 'Expandir sección' : 'Minimizar sección'
+            );
+        });
+    });
+}
+
+// Inicialización cuando el DOM está listo
+document.addEventListener('DOMContentLoaded', () => {
+    try {
+        const currentLang = localStorage.getItem('language') || 'es';
+        changeLanguage(currentLang);
+        initializeTheme();
+        initializeLanguageSwitcher();
+        initializeSectionToggles();
+    } catch (error) {
+        console.error('Error during initialization:', error);
+    }
 }); 

@@ -89,99 +89,140 @@
         </div>
 
         <div id="about" class="section">
-            <h2 data-i18n="about">Sobre mí</h2>
-            <div class="profile-title">
-                <p class="subtitle"></p>
+            <div class="section-header">
+                <h2 data-i18n="about">Sobre mí</h2>
+                <button class="toggle-section">
+                    <i class="bi bi-chevron-up"></i>
+                </button>
             </div>
+            <div class="section-content">
+                <div class="profile-title">
+                    <p class="subtitle"></p>
+                </div>
 
-            <p data-i18n="aboutMeText"></p>
+                <p data-i18n="aboutMeText"></p>
 
-            <h3 data-i18n="currentExperience"></h3>
-            <ul data-i18n-list="currentExperienceItems"></ul>
+                <h3 data-i18n="currentExperience"></h3>
+                <ul data-i18n-list="currentExperienceItems"></ul>
 
-            <h3 data-i18n="highlights"></h3>
-            <ul data-i18n-list="highlightsItems"></ul>
+                <h3 data-i18n="highlights"></h3>
+                <ul data-i18n-list="highlightsItems"></ul>
+            </div>
         </div>
 
         <div id="experience" class="section">
-            <h2 data-i18n="experience">Experiencia</h2>
-            
-            <!-- Experiencia actual y previa siempre visible -->
-            <div class="experience-visible">
-                <h3 data-i18n="currentPosition"></h3>
-                <p class="company-name" data-i18n="currentCompany"></p>
-                <p data-i18n="currentPeriod"></p>
-                <p data-i18n="currentLocation"></p>
-                <ul data-i18n-list="currentResponsibilities"></ul>
-
-                <h3 data-i18n="previousPosition"></h3>
-                <p class="company-name" data-i18n="previousCompany"></p>
-                <p data-i18n="previousPeriod"></p>
-                <p data-i18n="previousLocation"></p>
-                <ul data-i18n-list="previousResponsibilities"></ul>
+            <div class="section-header">
+                <h2 data-i18n="experience">Experiencia</h2>
+                <button class="toggle-section">
+                    <i class="bi bi-chevron-up"></i>
+                </button>
             </div>
+            <div class="section-content">
+                <!-- Experiencia actual y previa siempre visible -->
+                <div class="experience-visible">
+                    <h3 data-i18n="currentPosition"></h3>
+                    <p class="company-name" data-i18n="currentCompany"></p>
+                    <p data-i18n="currentPeriod"></p>
+                    <p data-i18n="currentLocation"></p>
+                    <ul data-i18n-list="currentResponsibilities"></ul>
 
-            <!-- Experiencia anterior oculta inicialmente -->
-            <div class="experience-hidden" style="display: none;">
-                <h3 data-i18n="javaDev2015Position"></h3>
-                <p class="company-name" data-i18n="javaDev2015Company"></p>
-                <p data-i18n="javaDev2015Period"></p>
-                <p data-i18n="javaDev2015Location"></p>
-                <ul data-i18n-list="javaDev2015Responsibilities"></ul>
+                    <h3 data-i18n="previousPosition"></h3>
+                    <p class="company-name" data-i18n="previousCompany"></p>
+                    <p data-i18n="previousPeriod"></p>
+                    <p data-i18n="previousLocation"></p>
+                    <ul data-i18n-list="previousResponsibilities"></ul>
+                </div>
 
-                <h3 data-i18n="javaDev2013Position"></h3>
-                <p class="company-name" data-i18n="javaDev2013Company"></p>
-                <p data-i18n="javaDev2013Period"></p>
-                <p data-i18n="javaDev2013Location"></p>
-                <ul data-i18n-list="javaDev2013Responsibilities"></ul>
+                <!-- Experiencia anterior oculta inicialmente -->
+                <div class="experience-hidden" style="display: none;">
+                    <h3 data-i18n="javaDev2015Position"></h3>
+                    <p class="company-name" data-i18n="javaDev2015Company"></p>
+                    <p data-i18n="javaDev2015Period"></p>
+                    <p data-i18n="javaDev2015Location"></p>
+                    <ul data-i18n-list="javaDev2015Responsibilities"></ul>
 
-                <h3 data-i18n="technicalSupportPosition"></h3>
-                <p class="company-name" data-i18n="technicalSupportCompany"></p>
-                <p data-i18n="technicalSupportPeriod"></p>
-                <p data-i18n="technicalSupportLocation"></p>
-                <ul data-i18n-list="technicalSupportResponsibilities"></ul>
+                    <h3 data-i18n="javaDev2013Position"></h3>
+                    <p class="company-name" data-i18n="javaDev2013Company"></p>
+                    <p data-i18n="javaDev2013Period"></p>
+                    <p data-i18n="javaDev2013Location"></p>
+                    <ul data-i18n-list="javaDev2013Responsibilities"></ul>
+
+                    <h3 data-i18n="technicalSupportPosition"></h3>
+                    <p class="company-name" data-i18n="technicalSupportCompany"></p>
+                    <p data-i18n="technicalSupportPeriod"></p>
+                    <p data-i18n="technicalSupportLocation"></p>
+                    <ul data-i18n-list="technicalSupportResponsibilities"></ul>
+                </div>
+
+                <button class="show-more-btn" data-i18n="showMore">Mostrar más</button>
             </div>
-
-            <button class="show-more-btn" data-i18n="showMore">Mostrar más</button>
         </div>
 
         <div id="skills" class="section">
-            <h2 data-i18n="skills">Habilidades</h2>
-            <div class="skills-container" data-i18n-skills="skillTags"></div>
+            <div class="section-header">
+                <h2 data-i18n="skills">Habilidades</h2>
+                <button class="toggle-section">
+                    <i class="bi bi-chevron-up"></i>
+                </button>
+            </div>
+            <div class="section-content">
+                <div class="skills-container" data-i18n-skills="skillTags"></div>
+            </div>
         </div>
 
         <div id="languages" class="section">
-            <h2 data-i18n="languages">Idiomas</h2>
-            <div class="languages-container">
-                <div class="language-card">
-                    <div class="language-info">
-                        <span class="language-name" data-i18n="spanish">Español</span>
-                        <div class="language-level-bar">
-                            <div class="level-fill native"></div>
+            <div class="section-header">
+                <h2 data-i18n="languages">Idiomas</h2>
+                <button class="toggle-section">
+                    <i class="bi bi-chevron-up"></i>
+                </button>
+            </div>
+            <div class="section-content">
+                <div class="languages-container">
+                    <div class="language-card">
+                        <div class="language-info">
+                            <span class="language-name" data-i18n="spanish">Español</span>
+                            <div class="language-level-bar">
+                                <div class="level-fill native"></div>
+                            </div>
+                            <span class="level-text" data-i18n="spanishLevel">Nativo o bilingüe</span>
                         </div>
-                        <span class="level-text" data-i18n="spanishLevel">Nativo o bilingüe</span>
                     </div>
-                </div>
-                <div class="language-card">
-                    <div class="language-info">
-                        <span class="language-name" data-i18n="english">Inglés</span>
-                        <div class="language-level-bar">
-                            <div class="level-fill professional"></div>
+                    <div class="language-card">
+                        <div class="language-info">
+                            <span class="language-name" data-i18n="english">Inglés</span>
+                            <div class="language-level-bar">
+                                <div class="level-fill professional"></div>
+                            </div>
+                            <span class="level-text" data-i18n="englishLevel">Dominio profesional</span>
                         </div>
-                        <span class="level-text" data-i18n="englishLevel">Dominio profesional</span>
                     </div>
                 </div>
             </div>
         </div>
 
         <div id="certifications" class="section">
-            <h2 data-i18n="certifications">Certificaciones</h2>
-            <div class="certifications-grid"></div>
+            <div class="section-header">
+                <h2 data-i18n="certifications">Certificaciones</h2>
+                <button class="toggle-section">
+                    <i class="bi bi-chevron-up"></i>
+                </button>
+            </div>
+            <div class="section-content">
+                <div class="certifications-grid"></div>
+            </div>
         </div>
 
         <div id="contact" class="section">
-            <h2 data-i18n="contact">Contacto</h2>
-            <div class="contact-info" data-i18n-contact="contactInfo"></div>
+            <div class="section-header">
+                <h2 data-i18n="contact">Contacto</h2>
+                <button class="toggle-section">
+                    <i class="bi bi-chevron-up"></i>
+                </button>
+            </div>
+            <div class="section-content">
+                <div class="contact-info" data-i18n-contact="contactInfo"></div>
+            </div>
         </div>
     </div>
     <footer class="ai-disclosure">
