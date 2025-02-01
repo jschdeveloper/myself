@@ -328,9 +328,62 @@ function initializeShowMoreButton() {
     }
 }
 
-// Inicializar cuando el DOM esté listo
+function initializeLeftFloatingMenu() {
+    const menuDots = document.querySelectorAll('.menu-dot');
+    
+    // Mantener el resto de la funcionalidad
+    menuDots.forEach(dot => {
+        dot.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = dot.getAttribute('href');
+            
+            if (targetId === '#home') {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            } else {
+                const targetSection = document.querySelector(targetId);
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        });
+    });
+
+    // Actualizar estado activo basado en la sección visible
+    const observerOptions = {
+        root: null,
+        rootMargin: '-20% 0px -70% 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const sectionId = entry.target.id;
+                menuDots.forEach(dot => {
+                    dot.classList.remove('active');
+                    if (dot.getAttribute('href') === `#${sectionId}`) {
+                        dot.classList.add('active');
+                    } else if (window.scrollY < 100 && dot.getAttribute('href') === '#home') {
+                        // Activar "Inicio" cuando estamos en la parte superior
+                        dot.classList.add('active');
+                    }
+                });
+            }
+        });
+    }, observerOptions);
+
+    // Observar todas las secciones
+    document.querySelectorAll('section, .section').forEach(section => {
+        observer.observe(section);
+    });
+}
+
+// Actualizar el DOMContentLoaded
 document.addEventListener('DOMContentLoaded', () => {
     const currentLang = localStorage.getItem('language') || 'es';
     changeLanguage(currentLang);
     initializeShowMoreButton();
+    initializeLeftFloatingMenu();
 }); 

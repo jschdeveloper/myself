@@ -29,6 +29,47 @@
             <span data-i18n="darkMode"></span>
         </button>
     </div>
+    <nav class="left-floating-menu">
+        <div class="menu-indicator"></div>
+        <ul>
+            <li>
+                <a href="#home" class="menu-dot" data-section="home">
+                    <span class="dot"></span>
+                    <span class="label" data-i18n="home">Inicio</span>
+                </a>
+            </li>
+            <li>
+                <a href="#about" class="menu-dot" data-section="about">
+                    <span class="dot"></span>
+                    <span class="label" data-i18n="about">Sobre mí</span>
+                </a>
+            </li>
+            <li>
+                <a href="#experience" class="menu-dot" data-section="experience">
+                    <span class="dot"></span>
+                    <span class="label" data-i18n="experience">Experiencia</span>
+                </a>
+            </li>
+            <li>
+                <a href="#skills" class="menu-dot" data-section="skills">
+                    <span class="dot"></span>
+                    <span class="label" data-i18n="skills">Habilidades</span>
+                </a>
+            </li>
+            <li>
+                <a href="#certifications" class="menu-dot" data-section="certifications">
+                    <span class="dot"></span>
+                    <span class="label" data-i18n="certifications">Certificaciones</span>
+                </a>
+            </li>
+            <li>
+                <a href="#contact" class="menu-dot" data-section="contact">
+                    <span class="dot"></span>
+                    <span class="label" data-i18n="contact">Contacto</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
     <div class="container">
         <div class="profile-header">
             <img src="./assets/images/profile.jpg" data-i18n-alt="profilePhotoAlt" class="profile-photo">
@@ -41,8 +82,8 @@
             </p>
         </div>
 
-        <div class="section">
-            <h2 data-i18n="aboutMe"></h2>
+        <div id="about" class="section">
+            <h2 data-i18n="about">Sobre mí</h2>
             <div class="profile-title">
                 <p class="subtitle"></p>
             </div>
@@ -56,7 +97,7 @@
             <ul data-i18n-list="highlightsItems"></ul>
         </div>
 
-        <div class="section">
+        <div id="experience" class="section">
             <h2 data-i18n="experience">Experiencia</h2>
             
             <!-- Experiencia actual y previa siempre visible -->
@@ -98,18 +139,18 @@
             <button class="show-more-btn" data-i18n="showMore">Mostrar más</button>
         </div>
 
-        <div class="section">
-            <h2 data-i18n="skills"></h2>
+        <div id="skills" class="section">
+            <h2 data-i18n="skills">Habilidades</h2>
             <div class="skills-container" data-i18n-skills="skillTags"></div>
         </div>
 
-        <div class="section">
-            <h2 data-i18n="certifications"></h2>
+        <div id="certifications" class="section">
+            <h2 data-i18n="certifications">Certificaciones</h2>
             <div class="certifications-grid"></div>
         </div>
 
-        <div class="section contact">
-            <h2 data-i18n="contact"></h2>
+        <div id="contact" class="section">
+            <h2 data-i18n="contact">Contacto</h2>
             <div class="contact-info" data-i18n-contact="contactInfo"></div>
         </div>
     </div>

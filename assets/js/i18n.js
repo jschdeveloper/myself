@@ -178,7 +178,8 @@ const translations = {
             }
         ],
         showMore: "Mostrar más",
-        showLess: "Mostrar menos"
+        showLess: "Mostrar menos",
+        home: "Inicio"
     },
     en: {
         langES: "ES",
@@ -359,6 +360,7 @@ const translations = {
             }
         ],
         showMore: "Show more",
-        showLess: "Show less"
+        showLess: "Show less",
+        home: "Home"
     }
 }; 
