@@ -13,18 +13,20 @@
     <script src="script.js"></script>
 </head>
 <body>
-    <button class="theme-switch" id="themeSwitch">
-        <i class="bi bi-moon-fill icon"></i>
-        <span>Modo oscuro</span>
-    </button>
-    <div class="language-switch">
-        <button class="lang-btn active" data-lang="es">
-            <img src="https://flagcdn.com/24x18/es.png" alt="Español">
-            <span>ES</span>
-        </button>
-        <button class="lang-btn" data-lang="en">
-            <img src="https://flagcdn.com/24x18/gb.png" alt="English">
-            <span>EN</span>
+    <div class="floating-controls">
+        <div class="language-switch">
+            <button class="lang-btn active" data-lang="es">
+                <i class="bi bi-globe2"></i>
+                <span>ES</span>
+            </button>
+            <button class="lang-btn" data-lang="en">
+                <i class="bi bi-globe2"></i>
+                <span>EN</span>
+            </button>
+        </div>
+        <button class="theme-switch" id="themeSwitch">
+            <i class="bi bi-moon-fill icon"></i>
+            <span>Modo oscuro</span>
         </button>
     </div>
     <div class="container">
