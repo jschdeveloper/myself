@@ -499,6 +499,20 @@ function initializeToggleAllSections() {
     document.addEventListener('languageChanged', updateButtonState);
 }
 
+// Añadir función para el scroll al inicio
+function initializeHomeButton() {
+    const homeButton = document.querySelector('[data-i18n="home"]');
+    if (!homeButton) return;
+
+    homeButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
+
 // Actualizar la inicialización
 document.addEventListener('DOMContentLoaded', () => {
     try {
@@ -509,6 +523,7 @@ document.addEventListener('DOMContentLoaded', () => {
         initializeSectionToggles();
         initializeToggleAllSections();
         initializeShowMoreButton();
+        initializeHomeButton();
     } catch (error) {
         console.error('Error during initialization:', error);
     }

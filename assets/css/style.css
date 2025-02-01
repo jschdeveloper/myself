@@ -1348,4 +1348,15 @@ a.contact-item:hover::after {
     .controls-group {
         gap: 0.5rem;
     }
+}
+
+/* Asegurarse de que el botón Home sea clickeable */
+[data-i18n="home"] {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+[data-i18n="home"]:hover {
+    color: var(--primary-color);
+    transform: translateY(-2px);
 } 
