@@ -930,4 +930,49 @@ a.contact-item:hover::after {
     .left-floating-menu {
         padding: 8px 10px;
     }
+}
+
+.languages-container {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.language-item {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1rem;
+    transition: all 0.3s ease;
+}
+
+.language-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.language-name {
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.language-level {
+    color: var(--text-color);
+    font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+    .language-item {
+        padding: 0.8rem;
+    }
+    
+    .language-name {
+        font-size: 1rem;
+    }
+    
+    .language-level {
+        font-size: 0.9rem;
+    }
 } 

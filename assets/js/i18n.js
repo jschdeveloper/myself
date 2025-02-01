@@ -179,7 +179,12 @@ const translations = {
         ],
         showMore: "Mostrar más",
         showLess: "Mostrar menos",
-        home: "Inicio"
+        home: "Inicio",
+        languages: "Idiomas",
+        spanish: "Español",
+        spanishLevel: "Nativo o bilingüe",
+        english: "Inglés",
+        englishLevel: "Dominio profesional"
     },
     en: {
         langES: "ES",
@@ -361,6 +366,11 @@ const translations = {
         ],
         showMore: "Show more",
         showLess: "Show less",
-        home: "Home"
+        home: "Home",
+        languages: "Languages",
+        spanish: "Spanish",
+        spanishLevel: "Native or bilingual",
+        english: "English",
+        englishLevel: "Professional working proficiency"
     }
 }; 
