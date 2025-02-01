@@ -35,6 +35,54 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+let phoneClickCount = 0;
+const REQUIRED_CLICKS = 10;
+
+function updatePhoneElement(lang) {
+    const contacts = translations[lang].contactInfo;
+    const contactContainer = document.querySelector('[data-i18n-contact]');
+    
+    if (contactContainer) {
+        contactContainer.innerHTML = contacts.map(contact => {
+            if (contact.icon === 'bi-telephone') {
+                if (phoneClickCount < REQUIRED_CLICKS) {
+                    const remainingClicks = REQUIRED_CLICKS - phoneClickCount;
+                    const message = phoneClickCount === 0 
+                        ? translations[lang].phoneHidden 
+                        : translations[lang].clicksRemaining.replace('{n}', remainingClicks);
+                    
+                    return `
+                        <div class="contact-item phone-hidden" onclick="handlePhoneClick('${lang}')">
+                            <i class="bi ${contact.icon}"></i>
+                            <span>${message}</span>
+                        </div>
+                    `;
+                } else {
+                    return `
+                        <div class="contact-item">
+                            <i class="bi ${contact.icon}"></i>
+                            <span>${contact.text}</span>
+                        </div>
+                    `;
+                }
+            }
+            
+            return `
+                ${contact.url ? `<a href="${contact.url}" target="_blank" class="contact-item">` : '<div class="contact-item">'}
+                    <i class="bi ${contact.icon}"></i>
+                    <span>${contact.text}</span>
+                ${contact.url ? '</a>' : '</div>'}
+            `;
+        }).join('');
+    }
+}
+
+function handlePhoneClick(lang) {
+    phoneClickCount++;
+    updatePhoneElement(lang);
+}
+
+// Modificar la función changeLanguage para usar updatePhoneElement
 function changeLanguage(lang) {
     // Traducir textos simples
     const elements = document.querySelectorAll('[data-i18n]');
@@ -83,17 +131,8 @@ function changeLanguage(lang) {
         `).join('');
     }
 
-    // Actualizar contacto
-    const contactContainer = document.querySelector('[data-i18n-contact]');
-    if (contactContainer) {
-        const contacts = translations[lang].contactInfo;
-        contactContainer.innerHTML = contacts.map(contact => `
-            ${contact.url ? `<a href="${contact.url}" target="_blank" class="contact-item">` : '<div class="contact-item">'}
-                <i class="bi ${contact.icon}"></i>
-                <span>${contact.text}</span>
-            ${contact.url ? '</a>' : '</div>'}
-        `).join('');
-    }
+    // Actualizar contacto usando la nueva función
+    updatePhoneElement(lang);
 
     localStorage.setItem('language', lang);
     

@@ -108,64 +108,79 @@ p {
 
 .skills-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.2rem;
     margin-top: 1.5rem;
 }
 
 .skill-tag {
     background: var(--card-bg);
     border: 1px solid var(--border-color);
-    border-radius: 8px;
-    padding: 1rem;
+    border-radius: 12px;
+    padding: 1.2rem;
     display: flex;
-    align-items: flex-start;
-    gap: 0.8rem;
-    transition: all 0.2s ease;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0.3s ease;
     box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-tag::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--primary-color);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.skill-tag:hover {
+    transform: translateY(-3px);
+    border-color: var(--primary-color);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 20px;
+}
+
+.skill-tag:hover::before {
+    opacity: 1;
 }
 
 .skill-tag .icon-container {
     display: flex;
-    gap: 0.3rem;
+    gap: 0.5rem;
+    padding: 0.8rem;
+    background: var(--hover-bg);
+    border-radius: 8px;
     flex-shrink: 0;
+}
+
+.skill-tag .icon-container i {
+    font-size: 1.4rem;
+    color: var(--primary-color);
 }
 
 .skill-tag .text-container {
     display: flex;
     flex-direction: column;
-    overflow: hidden;
-}
-
-.skill-tag i {
-    font-size: 1.2rem;
-    color: var(--primary-color);
-    flex-shrink: 0;
+    gap: 0.3rem;
+    flex: 1;
 }
 
 .skill-tag span {
     color: var(--skill-text);
-    font-weight: 500;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1.4;
 }
 
 .skill-tag small {
-    display: block;
-    color: var(--text-color);
-    opacity: 0.8;
-    font-size: 0.8rem;
-    margin-top: 0.2rem;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.skill-tag:hover {
-    transform: translateY(-2px);
-    border-color: var(--primary-color);
-    background: var(--hover-bg);
+    color: var(--secondary-text);
+    font-size: 0.85rem;
+    line-height: 1.4;
 }
 
 .skill-category {
@@ -320,6 +335,10 @@ a.contact-item:hover::after {
     .subtitle {
         font-size: 1rem;
     }
+
+    .skills-container {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
 }
 
 @media (max-width: 480px) {
@@ -347,10 +366,13 @@ a.contact-item:hover::after {
     .skills-container {
         grid-template-columns: 1fr;
     }
-
+    
     .skill-tag {
-        font-size: 0.8rem;
-        padding: 6px 12px;
+        padding: 1rem;
+    }
+    
+    .skill-tag .icon-container {
+        padding: 0.6rem;
     }
 
     .language-switch {
@@ -486,4 +508,33 @@ a.contact-item:hover::after {
 .lang-btn.active {
     background: var(--primary-color);
     color: white;
+}
+
+.phone-hidden {
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.phone-hidden:hover {
+    background: var(--hover-bg);
+    transform: translateY(-2px);
+}
+
+.phone-hidden::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 100%;
+    background: var(--primary-color);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.phone-hidden:hover::before {
+    transform: scaleX(1);
 } 
