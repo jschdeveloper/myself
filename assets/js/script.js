@@ -447,7 +447,53 @@ function initializeSectionToggles() {
     });
 }
 
-// Inicialización cuando el DOM está listo
+// Añadir la función para manejar el toggle de todas las secciones
+function initializeToggleAllSections() {
+    const toggleAllButton = document.getElementById('toggleAllSections');
+    if (!toggleAllButton) return;
+
+    let allCollapsed = false;
+
+    function updateButtonState() {
+        const currentLang = localStorage.getItem('language') || 'es';
+        const buttonText = allCollapsed ? 
+            translations[currentLang].expandAll : 
+            translations[currentLang].collapseAll;
+        
+        const icon = toggleAllButton.querySelector('i');
+        if (icon) {
+            icon.className = allCollapsed ? 'bi bi-arrows-expand' : 'bi bi-arrows-collapse';
+        }
+        
+        const span = toggleAllButton.querySelector('span');
+        if (span) {
+            span.textContent = buttonText;
+        }
+    }
+
+    toggleAllButton.addEventListener('click', () => {
+        allCollapsed = !allCollapsed;
+        const sections = document.querySelectorAll('.section');
+        
+        sections.forEach(section => {
+            section.classList.toggle('collapsed', allCollapsed);
+            
+            const toggleButton = section.querySelector('.toggle-section');
+            if (toggleButton) {
+                toggleButton.setAttribute('aria-label', 
+                    allCollapsed ? 'Expandir sección' : 'Minimizar sección'
+                );
+            }
+        });
+        
+        updateButtonState();
+    });
+
+    // Actualizar el texto cuando cambie el idioma
+    document.addEventListener('languageChanged', updateButtonState);
+}
+
+// Actualizar la inicialización
 document.addEventListener('DOMContentLoaded', () => {
     try {
         const currentLang = localStorage.getItem('language') || 'es';
@@ -455,6 +501,7 @@ document.addEventListener('DOMContentLoaded', () => {
         initializeTheme();
         initializeLanguageSwitcher();
         initializeSectionToggles();
+        initializeToggleAllSections();
     } catch (error) {
         console.error('Error during initialization:', error);
     }

@@ -1309,4 +1309,51 @@ a.contact-item:hover::after {
 .toggle-section:hover {
     color: var(--primary-color);
     transform: translateY(-2px);
+}
+
+/* Actualizar estilos para el nuevo botón */
+.controls-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: var(--card-bg);
+    color: var(--text-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.control-btn i {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.control-btn:hover {
+    background: var(--hover-bg);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+    .control-btn span {
+        display: none;
+    }
+
+    .control-btn {
+        padding: 0.5rem;
+    }
+
+    .controls-group {
+        gap: 0.5rem;
+    }
 } 
