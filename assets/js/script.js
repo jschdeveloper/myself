@@ -193,6 +193,27 @@ function updateSkillsAndContactSection(lang) {
     }
 }
 
+function updateCertifications(lang) {
+    const container = document.querySelector('.certifications-container');
+    const template = document.getElementById('certification-template');
+    
+    if (container && template) {
+        container.innerHTML = '';
+        translations[lang].certificationsList.forEach(cert => {
+            const clone = template.content.cloneNode(true);
+            
+            clone.querySelector('.certification-name').textContent = cert.name;
+            clone.querySelector('.certification-issuer').textContent = cert.issuer;
+            clone.querySelector('.certification-date').textContent = cert.date;
+            if (cert.credential) {
+                clone.querySelector('.certification-id').textContent = `ID: ${cert.credential}`;
+            }
+            
+            container.appendChild(clone);
+        });
+    }
+}
+
 function changeLanguage(lang) {
     const elements = document.querySelectorAll('[data-i18n]');
     elements.forEach(element => {
@@ -214,6 +235,7 @@ function changeLanguage(lang) {
     });
 
     updateSkillsAndContactSection(lang);
+    updateCertifications(lang);
     localStorage.setItem('language', lang);
 }
 

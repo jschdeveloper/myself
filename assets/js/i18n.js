@@ -33,13 +33,14 @@ const translations = {
             "Lideré la gestión de una aplicación móvil (iOS y Android) para la recopilación y procesamiento de información, manejando hasta 100K registros mensuales e integrándola con sistemas ERP para optimizar flujos de trabajo y comunicación interna."
         ],
         previousPosition: "Business Apps Developer",
+        previousCompany: "In-Store Media México",
         previousPeriod: "Feb 2016 - Sep 2022 · 6 años 8 meses",
-        previousLocation: "Mexico City, Mexico · Presencial",
+        previousLocation: "Ciudad de México, México · Presencial",
         previousResponsibilities: [
-            "Lideré el desarrollo de nuevos módulos para el sistema ERP EKON, incluyendo proyectos de cumplimiento de facturación electrónica en Argentina, México, Chile y Uruguay.",
-            "Gestioné la integración del complemento de pago y el proyecto del portal de proveedores en colaboración con la empresa Edicom.",
-            "Capacitación al personal para garantizar el uso efectivo de las herramientas y una comprensión integral de los procesos empresariales.",
-            "Brindé soporte y realicé mejoras continuas en las aplicaciones propietarias de la empresa, asegurando su funcionamiento óptimo y constante evolución."
+            "Lideré el desarrollo de nuevos módulos para el sistema ERP EKON, incluyendo proyectos de facturación electrónica en Argentina, México, Chile y Uruguay.",
+            "Gestioné la integración del complemento de pago y el proyecto del portal de proveedores en colaboración con Edicom.",
+            "Capacitación al personal para garantizar el uso efectivo de las herramientas y comprensión de los procesos empresariales.",
+            "Brindé soporte y realicé mejoras continuas en las aplicaciones propietarias de la empresa."
         ],
         skills: "Habilidades",
         contact: "Contacto",
@@ -123,7 +124,7 @@ const translations = {
             "Instalación, configuración y mantenimiento de servidores Debian y Windows Server 2008 r2.",
             "Desarrollo de página principal en el sistema \"SISSTEC\" en JSP y SQL Server como SGBD.",
             "Instalación de MS SharePoint Server 2010 y MS Project Server.",
-            "Creación, administración y mantenimiento de sitios creados con SPS 2010"
+            "Creación, administración y mantenimiento de sitios creados con Microsoft SharePoint 2010"
         ],
         javaDev2013Position: "Java Developer",
         javaDev2013Company: "Tata Consultancy Services · SAT",
@@ -144,6 +145,37 @@ const translations = {
             "Análisis de grandes volúmenes de información para la prevención de fraudes.",
             "Implementación de mejoras y actualizaciones al software.",
             "Creación de sistema web con Primefaces y IBM Websphere."
+        ],
+        certifications: "Certificaciones",
+        certificationsList: [
+            {
+                name: "Fundamentos de Programación en Java",
+                issuer: "Prometric",
+                date: "Abril 2016",
+                credential: "DEV-FPJ-111-00077"
+            },
+            {
+                name: "Android Certified Professional",
+                issuer: "Prometric",
+                date: "Diciembre 2015",
+                credential: "1509136825013"
+            },
+            {
+                name: "MTA: Software Development Fundamentals",
+                issuer: "Microsoft",
+                date: "Octubre 2014"
+            },
+            {
+                name: "Android Certified Professional",
+                issuer: "Prometric",
+                date: "Septiembre 2013"
+            },
+            {
+                name: "Sun Certified Programmer for the Java 2 Platform (SCJP), Standard Edition 5.0",
+                issuer: "Prometric",
+                date: "Agosto 2009",
+                credential: "5.0"
+            }
         ]
     },
     en: {
@@ -180,13 +212,14 @@ const translations = {
             "Led the management of a mobile application (iOS and Android) for information collection and processing, handling up to 100K monthly records and integrating it with ERP systems to optimize workflows and internal communication."
         ],
         previousPosition: "Business Apps Developer",
+        previousCompany: "In-Store Media México",
         previousPeriod: "Feb 2016 - Sep 2022 · 6 years 8 months",
         previousLocation: "Mexico City, Mexico · On-site",
         previousResponsibilities: [
-            "Led the development of new modules for the EKON ERP system, including electronic invoicing compliance projects in Argentina, Mexico, Chile and Uruguay.",
-            "Managed the integration of the payment complement and the supplier portal project in collaboration with Edicom company.",
-            "Staff training to ensure effective use of tools and comprehensive understanding of business processes.",
-            "Provided support and made continuous improvements to the company's proprietary applications, ensuring their optimal operation and constant evolution."
+            "Led the development of new modules for the EKON ERP system, including e-invoicing projects in Argentina, Mexico, Chile and Uruguay.",
+            "Managed payment complement integration and supplier portal project in collaboration with Edicom.",
+            "Staff training to ensure effective use of tools and understanding of business processes.",
+            "Provided support and made continuous improvements to company's proprietary applications."
         ],
         skills: "Skills",
         contact: "Contact",
@@ -270,7 +303,7 @@ const translations = {
             "Installation, configuration and maintenance of Debian and Windows Server 2008 r2 servers.",
             "Development of main page in \"SISSTEC\" system using JSP and SQL Server as DBMS.",
             "Installation of MS SharePoint Server 2010 and MS Project Server.",
-            "Creation, administration and maintenance of sites created with SPS 2010"
+            "Creation, administration and maintenance of sites created with Microsoft SharePoint 2010"
         ],
         javaDev2013Position: "Java Developer",
         javaDev2013Company: "Tata Consultancy Services · SAT",
@@ -291,6 +324,37 @@ const translations = {
             "Analysis of large volumes of information for fraud prevention.",
             "Implementation of software improvements and updates.",
             "Web system creation using Primefaces and IBM Websphere."
+        ],
+        certifications: "Certifications",
+        certificationsList: [
+            {
+                name: "Java Programming Fundamentals",
+                issuer: "Prometric",
+                date: "April 2016",
+                credential: "DEV-FPJ-111-00077"
+            },
+            {
+                name: "Android Certified Professional",
+                issuer: "Prometric",
+                date: "December 2015",
+                credential: "1509136825013"
+            },
+            {
+                name: "MTA: Software Development Fundamentals",
+                issuer: "Microsoft",
+                date: "October 2014"
+            },
+            {
+                name: "Android Certified Professional",
+                issuer: "Prometric",
+                date: "September 2013"
+            },
+            {
+                name: "Sun Certified Programmer for the Java 2 Platform (SCJP), Standard Edition 5.0",
+                issuer: "Prometric",
+                date: "August 2009",
+                credential: "5.0"
+            }
         ]
     }
 }; 

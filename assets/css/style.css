@@ -650,4 +650,51 @@ a.contact-item:hover::after {
     font-style: italic;
     margin-bottom: 0.2rem;
     opacity: 0.9;
+}
+
+.certifications-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-top: 1rem;
+}
+
+.certification-item {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.certification-name {
+    color: var(--text-color);
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.certification-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    color: var(--secondary-text);
+    font-size: 0.9rem;
+}
+
+.certification-issuer {
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.certification-id {
+    color: var(--secondary-text);
+    font-family: monospace;
+}
+
+@media (max-width: 480px) {
+    .certification-details {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
 } 
