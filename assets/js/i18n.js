@@ -26,7 +26,7 @@ const translations = {
         currentPosition: "Processes & Business Apps Developer",
         currentCompany: "in-Store Media Group",
         currentPeriod: "Oct 2022 - Presente · 2 años 5 meses",
-        currentLocation: "Barcelona, Catalonia, Spain · Híbrido",
+        currentLocation: "Barcelona, España · Híbrido",
         currentResponsibilities: [
             "Desarrollador de aplicaciones corporativas especializado en soluciones empresariales.",
             "Especialista en análisis y gestión de proyectos con amplia experiencia en la implementación de iniciativas estratégicas a nivel global (Europa, América y Asia).",
