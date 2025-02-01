@@ -36,18 +36,65 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function changeLanguage(lang) {
-    console.log('Changing language to:', lang); // Para debugging
+    // Traducir textos simples
     const elements = document.querySelectorAll('[data-i18n]');
     elements.forEach(element => {
         const key = element.getAttribute('data-i18n');
-        if (translations[lang] && translations[lang][key]) {
+        if (translations[lang][key]) {
             element.textContent = translations[lang][key];
-        } else {
-            console.warn(`Translation missing for key "${key}" in language "${lang}"`);
         }
     });
-    
-    // Actualizar el idioma en localStorage
+
+    // Traducir listas
+    const lists = document.querySelectorAll('[data-i18n-list]');
+    lists.forEach(list => {
+        const key = list.getAttribute('data-i18n-list');
+        if (translations[lang][key]) {
+            list.innerHTML = translations[lang][key]
+                .map(item => `<li>${item}</li>`)
+                .join('');
+        }
+    });
+
+    // Actualizar alt de imágenes
+    const images = document.querySelectorAll('[data-i18n-alt]');
+    images.forEach(img => {
+        const key = img.getAttribute('data-i18n-alt');
+        if (translations[lang][key]) {
+            img.alt = translations[lang][key];
+        }
+    });
+
+    // Actualizar skills
+    const skillsContainer = document.querySelector('[data-i18n-skills]');
+    if (skillsContainer) {
+        const skills = translations[lang].skillTags;
+        skillsContainer.innerHTML = skills.map(skill => `
+            <div class="skill-tag">
+                <div class="icon-container">
+                    <i class="bi ${skill.icon}"></i>
+                    ${skill.icon2 ? `<i class="bi ${skill.icon2}"></i>` : ''}
+                </div>
+                <div class="text-container">
+                    <span>${skill.text}</span>
+                    ${skill.subtext ? `<small>${skill.subtext}</small>` : ''}
+                </div>
+            </div>
+        `).join('');
+    }
+
+    // Actualizar contacto
+    const contactContainer = document.querySelector('[data-i18n-contact]');
+    if (contactContainer) {
+        const contacts = translations[lang].contactInfo;
+        contactContainer.innerHTML = contacts.map(contact => `
+            ${contact.url ? `<a href="${contact.url}" target="_blank" class="contact-item">` : '<div class="contact-item">'}
+                <i class="bi ${contact.icon}"></i>
+                <span>${contact.text}</span>
+            ${contact.url ? '</a>' : '</div>'}
+        `).join('');
+    }
+
     localStorage.setItem('language', lang);
     
     // Actualizar el texto del botón de tema
@@ -96,7 +143,18 @@ function handleThemeSwitch() {
 
 // Función para establecer el tema inicial
 function setInitialTheme() {
-    const savedTheme = localStorage.getItem('theme') || 'light';
+    const savedTheme = localStorage.getItem('theme') || 'dark';
     const html = document.documentElement;
     html.setAttribute('data-theme', savedTheme);
+    
+    // Actualizar el botón de tema
+    const themeSwitch = document.getElementById('themeSwitch');
+    const icon = themeSwitch.querySelector('.icon');
+    const text = themeSwitch.querySelector('span');
+    
+    if (savedTheme === 'dark') {
+        icon.classList.remove('bi-moon-fill');
+        icon.classList.add('bi-sun-fill');
+        text.textContent = 'Modo claro';
+    }
 } 
