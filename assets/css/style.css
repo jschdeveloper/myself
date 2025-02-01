@@ -637,4 +637,17 @@ a.contact-item:hover::after {
     0%, 100% { transform: translateX(0); }
     25% { transform: translateX(-5px); }
     75% { transform: translateX(5px); }
+}
+
+.company-name {
+    color: var(--primary-color);
+    font-weight: 500;
+    margin-bottom: 0.2rem;
+}
+
+.project-name {
+    color: var(--text-color);
+    font-style: italic;
+    margin-bottom: 0.2rem;
+    opacity: 0.9;
 } 

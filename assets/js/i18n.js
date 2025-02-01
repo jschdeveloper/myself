@@ -114,7 +114,37 @@ const translations = {
         emailHidden: "{sum} = ?",
         emailPlaceholder: "Escribe tu respuesta",
         emailWrong: "¡Vuelve a intentarlo!",
-        emailSubmit: "Verificar"
+        emailSubmit: "Verificar",
+        technicalSupportPosition: "Soporte Técnico",
+        technicalSupportCompany: "Universidad Veracruzana",
+        technicalSupportPeriod: "Ene 2010 - Jun 2013 · 3 años 6 meses",
+        technicalSupportLocation: "Xalapa, Veracruz, México · Presencial",
+        technicalSupportResponsibilities: [
+            "Instalación, configuración y mantenimiento de servidores Debian y Windows Server 2008 r2.",
+            "Desarrollo de página principal en el sistema \"SISSTEC\" en JSP y SQL Server como SGBD.",
+            "Instalación de MS SharePoint Server 2010 y MS Project Server.",
+            "Creación, administración y mantenimiento de sitios creados con SPS 2010"
+        ],
+        javaDev2013Position: "Java Developer",
+        javaDev2013Company: "Tata Consultancy Services · SAT",
+        javaDev2013Period: "Jul 2013 - Feb 2015 · 1 año 8 meses",
+        javaDev2013Location: "Ciudad de México, México · Presencial",
+        javaDev2013Responsibilities: [
+            "Contribución en proyectos para el SAT (Servicio de Administración Tributaria).",
+            "Creación de los proyectos RIF (Régimen de Incorporación Fiscal), DPA, Declaración Anual.",
+            "Rediseño de la aplicación \"Mis cuentas\" en la plataforma Android.",
+            "Administración de catálogos para dichos sistemas.",
+            "Seguimiento de proyectos desde la fase de desarrollo pasando por UAT, estrés y producción."
+        ],
+        javaDev2015Position: "Java Developer",
+        javaDev2015Company: "Tata Consultancy Services · Telcel",
+        javaDev2015Period: "Mar 2015 - Feb 2016 · 1 año",
+        javaDev2015Location: "Ciudad de México, México · Presencial",
+        javaDev2015Responsibilities: [
+            "Análisis de grandes volúmenes de información para la prevención de fraudes.",
+            "Implementación de mejoras y actualizaciones al software.",
+            "Creación de sistema web con Primefaces y IBM Websphere."
+        ]
     },
     en: {
         langES: "ES",
@@ -231,6 +261,36 @@ const translations = {
         emailHidden: "{sum} = ?",
         emailPlaceholder: "Enter your answer",
         emailWrong: "Try again!",
-        emailSubmit: "Verify"
+        emailSubmit: "Verify",
+        technicalSupportPosition: "Technical Support",
+        technicalSupportCompany: "Universidad Veracruzana",
+        technicalSupportPeriod: "Jan 2010 - Jun 2013 · 3 years 6 months",
+        technicalSupportLocation: "Xalapa, Veracruz, Mexico · On-site",
+        technicalSupportResponsibilities: [
+            "Installation, configuration and maintenance of Debian and Windows Server 2008 r2 servers.",
+            "Development of main page in \"SISSTEC\" system using JSP and SQL Server as DBMS.",
+            "Installation of MS SharePoint Server 2010 and MS Project Server.",
+            "Creation, administration and maintenance of sites created with SPS 2010"
+        ],
+        javaDev2013Position: "Java Developer",
+        javaDev2013Company: "Tata Consultancy Services · SAT",
+        javaDev2013Period: "Jul 2013 - Feb 2015 · 1 year 8 months",
+        javaDev2013Location: "Mexico City, Mexico · On-site",
+        javaDev2013Responsibilities: [
+            "Contribution to projects for SAT (Tax Administration Service).",
+            "Creation of RIF (Tax Incorporation Regime), DPA, Annual Declaration projects.",
+            "Redesign of \"My Accounts\" application on Android platform.",
+            "Catalog administration for these systems.",
+            "Project monitoring from development phase through UAT, stress testing and production."
+        ],
+        javaDev2015Position: "Java Developer",
+        javaDev2015Company: "Tata Consultancy Services · Telcel",
+        javaDev2015Period: "Mar 2015 - Feb 2016 · 1 year",
+        javaDev2015Location: "Mexico City, Mexico · On-site",
+        javaDev2015Responsibilities: [
+            "Analysis of large volumes of information for fraud prevention.",
+            "Implementation of software improvements and updates.",
+            "Web system creation using Primefaces and IBM Websphere."
+        ]
     }
 }; 
