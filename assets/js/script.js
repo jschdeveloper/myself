@@ -513,9 +513,30 @@ function initializeHomeButton() {
     });
 }
 
+// Función para manejar el splash screen
+function initializeSplashScreen() {
+    const splashScreen = document.querySelector('.splash-screen');
+    const body = document.body;
+
+    if (!splashScreen) return;
+
+    body.classList.add('splash-active');
+
+    setTimeout(() => {
+        splashScreen.classList.add('hide');
+        body.classList.remove('splash-active');
+        
+        setTimeout(() => {
+            splashScreen.remove();
+        }, 500);
+    }, 1500);
+}
+
 // Actualizar la inicialización
 document.addEventListener('DOMContentLoaded', () => {
     try {
+        initializeSplashScreen();
+        
         const currentLang = localStorage.getItem('language') || 'es';
         changeLanguage(currentLang);
         initializeTheme();
