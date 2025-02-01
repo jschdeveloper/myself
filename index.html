@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <script src="i18n.js"></script>
     <script src="script.js"></script>
 </head>
 <body>
@@ -16,22 +17,32 @@
         <i class="bi bi-moon-fill icon"></i>
         <span>Modo oscuro</span>
     </button>
+    <div class="language-switch">
+        <button class="lang-btn active" data-lang="es">
+            <img src="https://flagcdn.com/24x18/es.png" alt="Español">
+            <span>ES</span>
+        </button>
+        <button class="lang-btn" data-lang="en">
+            <img src="https://flagcdn.com/24x18/gb.png" alt="English">
+            <span>EN</span>
+        </button>
+    </div>
     <div class="container">
         <div class="profile-header">
             <img src="profile.jpg" alt="Foto de perfil" class="profile-photo">
-            <h1>Jesús Sánchez</h1>
-            <p>Ingeniero de Software | Especialista en ERP | Gestión de Proyectos y Desarrollo Web</p>
+            <h1 data-i18n="title">Jesús Sánchez - Ingeniero de Software</h1>
+            <p data-i18n="role">Ingeniero de Software | Especialista en ERP | Gestión de Proyectos y Desarrollo Web</p>
         </div>
 
         <div class="section">
-            <h2>Sobre mí</h2>
+            <h2 data-i18n="aboutMe">Sobre mí</h2>
             <div class="profile-title">
                 <p class="subtitle"></p>
             </div>
 
-            <p>Ingeniero de Software con más de 10 años de experiencia en el desarrollo e implementación de soluciones empresariales, me especializo en sistemas ERP, integraciones globales y gestión de proyectos. He liderado iniciativas clave que han optimizado procesos operativos y financieros en empresas con presencia internacional.</p>
+            <p data-i18n="aboutMeText">Ingeniero de Software con más de 10 años de experiencia en el desarrollo e implementación de soluciones empresariales, me especializo en sistemas ERP, integraciones globales y gestión de proyectos. He liderado iniciativas clave que han optimizado procesos operativos y financieros en empresas con presencia internacional.</p>
 
-            <h3>Experiencia actual:</h3>
+            <h3 data-i18n="currentExperience">Experiencia actual:</h3>
             <ul>
                 <li>Definición, organización e implementación de proyectos con proveedores externos.</li>
                 <li>Soporte, mantenimiento y desarrollo de nuevos módulos del ERP EKON (Java), utilizado para gestionar procesos críticos como operaciones, cadena de suministro, finanzas y ventas.</li>
@@ -39,7 +50,7 @@
                 <li>Integración con EDICOM y adaptación de la facturación electrónica para cumplir con normativas en Argentina, México, Chile y Uruguay.</li>
             </ul>
 
-            <h3>Logros destacados:</h3>
+            <h3 data-i18n="highlights">Logros destacados:</h3>
             <ul>
                 <li>Colaboré con la migración del ERP, reduciendo los tiempos de procesamiento y asegurando una transición sin interrupciones.</li>
                 <li>Implementé soluciones de facturación electrónica en 4 países de Latam, cumpliendo con regulaciones locales y optimizando los procesos de cobro.</li>
@@ -48,7 +59,7 @@
         </div>
 
         <div class="section">
-            <h2>Experiencia</h2>
+            <h2 data-i18n="experience">Experiencia</h2>
             
             <h3>Processes & Business Apps Developer</h3>
             <p class="company-name">in-Store Media Group</p>
@@ -73,7 +84,7 @@
         </div>
 
         <div class="section">
-            <h2>Habilidades</h2>
+            <h2 data-i18n="skills">Habilidades</h2>
             <div class="skills">
                 <div class="skill-category">
                     <div class="skill-tag">
@@ -119,7 +130,7 @@
         </div>
 
         <div class="section">
-            <h2>Contacto</h2>
+            <h2 data-i18n="contact">Contacto</h2>
             <div class="contact-info">
                 <a href="https://linkedin.com/in/jsanchezch" target="_blank" class="contact-item">
                     <i class="bi bi-linkedin"></i>
