@@ -309,19 +309,25 @@ function initializeShowMoreButton() {
     const hiddenContent = document.querySelector('.experience-hidden');
     
     if (showMoreBtn && hiddenContent) {
+        // Establecer estado inicial
+        hiddenContent.style.display = 'none';
+        
         showMoreBtn.addEventListener('click', () => {
-            const isHidden = hiddenContent.style.display === 'none';
             const currentLang = localStorage.getItem('language') || 'es';
+            const isHidden = hiddenContent.style.display === 'none';
             
             if (isHidden) {
                 hiddenContent.style.display = 'block';
-                setTimeout(() => hiddenContent.classList.add('show'), 10);
+                hiddenContent.style.opacity = '0';
+                setTimeout(() => {
+                    hiddenContent.style.opacity = '1';
+                }, 10);
                 showMoreBtn.textContent = translations[currentLang].showLess;
             } else {
-                hiddenContent.classList.remove('show');
+                hiddenContent.style.opacity = '0';
                 setTimeout(() => {
                     hiddenContent.style.display = 'none';
-                }, 500);
+                }, 300);
                 showMoreBtn.textContent = translations[currentLang].showMore;
             }
         });
@@ -502,6 +508,7 @@ document.addEventListener('DOMContentLoaded', () => {
         initializeLanguageSwitcher();
         initializeSectionToggles();
         initializeToggleAllSections();
+        initializeShowMoreButton();
     } catch (error) {
         console.error('Error during initialization:', error);
     }
