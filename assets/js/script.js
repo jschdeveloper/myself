@@ -194,23 +194,25 @@ function updateSkillsAndContactSection(lang) {
 }
 
 function updateCertifications(lang) {
-    const container = document.querySelector('.certifications-container');
-    const template = document.getElementById('certification-template');
+    const container = document.querySelector('.certifications-grid');
     
-    if (container && template) {
-        container.innerHTML = '';
-        translations[lang].certificationsList.forEach(cert => {
-            const clone = template.content.cloneNode(true);
-            
-            clone.querySelector('.certification-name').textContent = cert.name;
-            clone.querySelector('.certification-issuer').textContent = cert.issuer;
-            clone.querySelector('.certification-date').textContent = cert.date;
-            if (cert.credential) {
-                clone.querySelector('.certification-id').textContent = `ID: ${cert.credential}`;
-            }
-            
-            container.appendChild(clone);
-        });
+    if (container) {
+        container.innerHTML = translations[lang].certificationsList.map(cert => `
+            <div class="certification-card">
+                <div class="certification-title">${cert.name}</div>
+                <div class="certification-meta">
+                    <i class="bi bi-building"></i>
+                    <span>${cert.issuer}</span>
+                    <i class="bi bi-calendar3"></i>
+                    <span>${cert.date}</span>
+                </div>
+                ${cert.credential ? `
+                    <div class="certification-id">
+                        <i class="bi bi-shield-check"></i> ID: ${cert.credential}
+                    </div>
+                ` : ''}
+            </div>
+        `).join('');
     }
 }
 
@@ -237,6 +239,15 @@ function changeLanguage(lang) {
     updateSkillsAndContactSection(lang);
     updateCertifications(lang);
     localStorage.setItem('language', lang);
+
+    // Actualizar el texto del botón según su estado
+    const showMoreBtn = document.querySelector('.show-more-btn');
+    const hiddenContent = document.querySelector('.experience-hidden');
+    if (showMoreBtn && hiddenContent) {
+        showMoreBtn.textContent = hiddenContent.style.display === 'none' ? 
+            translations[lang].showMore : 
+            translations[lang].showLess;
+    }
 }
 
 function setInitialLanguage() {
@@ -291,4 +302,35 @@ function setInitialTheme() {
         icon.classList.add('bi-sun-fill');
         text.textContent = 'Modo claro';
     }
-} 
+}
+
+function initializeShowMoreButton() {
+    const showMoreBtn = document.querySelector('.show-more-btn');
+    const hiddenContent = document.querySelector('.experience-hidden');
+    
+    if (showMoreBtn && hiddenContent) {
+        showMoreBtn.addEventListener('click', () => {
+            const isHidden = hiddenContent.style.display === 'none';
+            const currentLang = localStorage.getItem('language') || 'es';
+            
+            if (isHidden) {
+                hiddenContent.style.display = 'block';
+                setTimeout(() => hiddenContent.classList.add('show'), 10);
+                showMoreBtn.textContent = translations[currentLang].showLess;
+            } else {
+                hiddenContent.classList.remove('show');
+                setTimeout(() => {
+                    hiddenContent.style.display = 'none';
+                }, 500);
+                showMoreBtn.textContent = translations[currentLang].showMore;
+            }
+        });
+    }
+}
+
+// Inicializar cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', () => {
+    const currentLang = localStorage.getItem('language') || 'es';
+    changeLanguage(currentLang);
+    initializeShowMoreButton();
+}); 

@@ -57,37 +57,45 @@
         </div>
 
         <div class="section">
-            <h2 data-i18n="experience"></h2>
+            <h2 data-i18n="experience">Experiencia</h2>
             
-            <h3 data-i18n="currentPosition"></h3>
-            <p class="company-name" data-i18n="currentCompany"></p>
-            <p data-i18n="currentPeriod"></p>
-            <p data-i18n="currentLocation"></p>
-            <ul data-i18n-list="currentResponsibilities"></ul>
+            <!-- Experiencia actual y previa siempre visible -->
+            <div class="experience-visible">
+                <h3 data-i18n="currentPosition"></h3>
+                <p class="company-name" data-i18n="currentCompany"></p>
+                <p data-i18n="currentPeriod"></p>
+                <p data-i18n="currentLocation"></p>
+                <ul data-i18n-list="currentResponsibilities"></ul>
 
-            <h3 data-i18n="previousPosition"></h3>
-            <p class="company-name" data-i18n="previousCompany"></p>
-            <p data-i18n="previousPeriod"></p>
-            <p data-i18n="previousLocation"></p>
-            <ul data-i18n-list="previousResponsibilities"></ul>
+                <h3 data-i18n="previousPosition"></h3>
+                <p class="company-name" data-i18n="previousCompany"></p>
+                <p data-i18n="previousPeriod"></p>
+                <p data-i18n="previousLocation"></p>
+                <ul data-i18n-list="previousResponsibilities"></ul>
+            </div>
 
-            <h3 data-i18n="javaDev2015Position"></h3>
-            <p class="company-name" data-i18n="javaDev2015Company"></p>
-            <p data-i18n="javaDev2015Period"></p>
-            <p data-i18n="javaDev2015Location"></p>
-            <ul data-i18n-list="javaDev2015Responsibilities"></ul>
+            <!-- Experiencia anterior oculta inicialmente -->
+            <div class="experience-hidden" style="display: none;">
+                <h3 data-i18n="javaDev2015Position"></h3>
+                <p class="company-name" data-i18n="javaDev2015Company"></p>
+                <p data-i18n="javaDev2015Period"></p>
+                <p data-i18n="javaDev2015Location"></p>
+                <ul data-i18n-list="javaDev2015Responsibilities"></ul>
 
-            <h3 data-i18n="javaDev2013Position"></h3>
-            <p class="company-name" data-i18n="javaDev2013Company"></p>
-            <p data-i18n="javaDev2013Period"></p>
-            <p data-i18n="javaDev2013Location"></p>
-            <ul data-i18n-list="javaDev2013Responsibilities"></ul>
+                <h3 data-i18n="javaDev2013Position"></h3>
+                <p class="company-name" data-i18n="javaDev2013Company"></p>
+                <p data-i18n="javaDev2013Period"></p>
+                <p data-i18n="javaDev2013Location"></p>
+                <ul data-i18n-list="javaDev2013Responsibilities"></ul>
 
-            <h3 data-i18n="technicalSupportPosition"></h3>
-            <p class="company-name" data-i18n="technicalSupportCompany"></p>
-            <p data-i18n="technicalSupportPeriod"></p>
-            <p data-i18n="technicalSupportLocation"></p>
-            <ul data-i18n-list="technicalSupportResponsibilities"></ul>
+                <h3 data-i18n="technicalSupportPosition"></h3>
+                <p class="company-name" data-i18n="technicalSupportCompany"></p>
+                <p data-i18n="technicalSupportPeriod"></p>
+                <p data-i18n="technicalSupportLocation"></p>
+                <ul data-i18n-list="technicalSupportResponsibilities"></ul>
+            </div>
+
+            <button class="show-more-btn" data-i18n="showMore">Mostrar más</button>
         </div>
 
         <div class="section">
@@ -97,18 +105,7 @@
 
         <div class="section">
             <h2 data-i18n="certifications"></h2>
-            <div class="certifications-container">
-                <template id="certification-template">
-                    <div class="certification-item">
-                        <h3 class="certification-name"></h3>
-                        <div class="certification-details">
-                            <span class="certification-issuer"></span>
-                            <span class="certification-date"></span>
-                            <span class="certification-id"></span>
-                        </div>
-                    </div>
-                </template>
-            </div>
+            <div class="certifications-grid"></div>
         </div>
 
         <div class="section contact">

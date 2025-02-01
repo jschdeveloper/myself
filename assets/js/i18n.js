@@ -176,7 +176,9 @@ const translations = {
                 date: "Agosto 2009",
                 credential: "5.0"
             }
-        ]
+        ],
+        showMore: "Mostrar más",
+        showLess: "Mostrar menos"
     },
     en: {
         langES: "ES",
@@ -355,6 +357,8 @@ const translations = {
                 date: "August 2009",
                 credential: "5.0"
             }
-        ]
+        ],
+        showMore: "Show more",
+        showLess: "Show less"
     }
 }; 
