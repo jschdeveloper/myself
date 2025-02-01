@@ -185,8 +185,8 @@ const translations = {
         spanishLevel: "Nativo o bilingüe",
         english: "Inglés",
         englishLevel: "Dominio profesional",
-        aiDisclosure: "Esta página web fue creada utilizando",
-        aiDisclosure2: "y tecnología de Inteligencia Artificial, sin escribir código manualmente."
+        aiDisclosure: "Web creada con",
+        aiDisclosure2: "y tecnología IA, sin código manual."
     },
     en: {
         langES: "ES",
@@ -374,7 +374,7 @@ const translations = {
         spanishLevel: "Native or bilingual",
         english: "English",
         englishLevel: "Professional working proficiency",
-        aiDisclosure: "This website was created using",
-        aiDisclosure2: "and Artificial Intelligence technology, without manually writing code."
+        aiDisclosure: "Website created with",
+        aiDisclosure2: "and AI technology, no manual coding."
     }
 }; 

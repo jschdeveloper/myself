@@ -482,37 +482,61 @@ a.contact-item:hover::after {
 }
 
 .lang-btn {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 16px;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--border-color);
     border-radius: 8px;
-    border: 1.5px solid transparent;
     background: var(--card-bg);
     color: var(--text-color);
     cursor: pointer;
+    transition: all 0.3s ease;
     font-weight: 500;
-    transition: all 0.2s ease;
-}
-
-.lang-btn i {
-    font-size: 1.1rem;
-}
-
-.lang-btn span {
-    font-size: 0.9rem;
-    font-weight: 600;
-    letter-spacing: 0.5px;
 }
 
 .lang-btn:hover {
-    background: var(--section-bg);
+    background: var(--hover-bg);
     transform: translateY(-2px);
+    box-shadow: var(--shadow);
+    border-color: var(--primary-color);
 }
 
 .lang-btn.active {
     background: var(--primary-color);
     color: white;
+    border-color: var(--primary-color);
+}
+
+/* Ajustes específicos para modo claro */
+:root[data-theme="light"] .lang-btn:hover {
+    background: var(--hover-bg);
+    color: var(--primary-color);
+}
+
+:root[data-theme="light"] .lang-btn.active {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* Ajustes específicos para modo oscuro */
+:root[data-theme="dark"] .lang-btn:hover {
+    background: var(--hover-bg);
+    color: var(--primary-color);
+}
+
+:root[data-theme="dark"] .lang-btn.active {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+    .lang-btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    .lang-btn:hover {
+        transform: translateY(-1px);
+    }
 }
 
 .phone-hidden {
@@ -1137,5 +1161,92 @@ a.contact-item:hover::after {
     .form-group textarea {
         padding: 0.7rem 0.9rem;
         font-size: 0.95rem;
+    }
+}
+
+/* Estilo hover unificado para todos los elementos interactivos */
+.section-card,
+.language-card,
+.certification-card,
+.skill-card,
+.experience-card,
+.contact-item,
+.control-btn,
+.lang-btn,
+.menu-dot,
+.form-group input,
+.form-group textarea,
+.social-link,
+.project-card {
+    transition: all 0.3s ease;
+}
+
+/* Efecto hover unificado */
+.section-card:hover,
+.language-card:hover,
+.certification-card:hover,
+.skill-card:hover,
+.experience-card:hover,
+.contact-item:hover,
+.control-btn:hover,
+.lang-btn:hover,
+.menu-dot:hover,
+.form-group input:hover,
+.form-group textarea:hover,
+.social-link:hover,
+.project-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+    border-color: var(--primary-color);
+}
+
+/* Efecto hover para elementos que no deben tener transform */
+.form-group input:hover,
+.form-group textarea:hover {
+    transform: none;
+    border-color: var(--primary-color);
+    background-color: var(--hover-bg);
+}
+
+/* Efecto hover para botones */
+.control-btn:hover,
+.lang-btn:hover {
+    background: var(--hover-bg);
+}
+
+/* Ajuste para elementos del menú */
+.menu-dot:hover {
+    transform: scale(1.05);
+}
+
+/* Asegurar que los elementos tengan cursor pointer */
+.section-card,
+.language-card,
+.certification-card,
+.skill-card,
+.experience-card,
+.contact-item,
+.control-btn,
+.lang-btn,
+.menu-dot,
+.social-link,
+.project-card {
+    cursor: pointer;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+    .section-card:hover,
+    .language-card:hover,
+    .certification-card:hover,
+    .skill-card:hover,
+    .experience-card:hover,
+    .contact-item:hover,
+    .control-btn:hover,
+    .lang-btn:hover,
+    .menu-dot:hover,
+    .social-link:hover,
+    .project-card:hover {
+        transform: translateY(-1px); /* Efecto más sutil en móvil */
     }
 } 
