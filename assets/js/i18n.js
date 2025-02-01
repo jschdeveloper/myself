@@ -96,7 +96,8 @@ const translations = {
             },
             {
                 icon: "bi-telephone",
-                text: "+34 621 023 491"
+                text: "+34 621 023 491",
+                isPhone: true
             },
             {
                 icon: "bi-envelope",
@@ -105,8 +106,8 @@ const translations = {
             }
         ],
         profilePhotoAlt: "Foto de perfil",
-        phoneHidden: "¿Quieres ver el número? (Clic aquí)",
-        clicksRemaining: "Faltan {n} clics",
+        phoneHidden: "¿Quieres ver el número? (Click aquí)",
+        clicksRemaining: "Faltan {n} clicks",
         location: "Barcelona, España",
         locationPrefix: "Ubicación: ",
         emailHiddenTitle: "Si quieres ver el correo por favor resuelve esta suma:",
@@ -212,7 +213,8 @@ const translations = {
             },
             {
                 icon: "bi-telephone",
-                text: "+34 621 023 491"
+                text: "+34 621 023 491",
+                isPhone: true
             },
             {
                 icon: "bi-envelope",

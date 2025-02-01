@@ -37,29 +37,98 @@ document.addEventListener('DOMContentLoaded', function() {
 
 let phoneClickCount = 0;
 const REQUIRED_CLICKS = 10;
-
-// Variables para el reto matemático
 let firstNumber, secondNumber, correctAnswer;
+let isEmailRevealed = false; // Nueva variable para rastrear el estado del correo
+let emailAddress = ''; // Para guardar el correo cuando se revela
 
 function generateMathProblem() {
-    firstNumber = Math.floor(Math.random() * 9) + 1;  // Número entre 1 y 9
-    secondNumber = Math.floor(Math.random() * 9) + 1; // Número entre 1 y 9
+    firstNumber = Math.floor(Math.random() * 9) + 1;
+    secondNumber = Math.floor(Math.random() * 9) + 1;
     correctAnswer = firstNumber + secondNumber;
     return `${firstNumber} + ${secondNumber}`;
 }
 
-function updatePhoneElement(lang) {
+function handlePhoneClick(lang) {
+    phoneClickCount++;
+    const phoneElement = document.querySelector('.phone-hidden');
+    if (phoneElement) {
+        if (phoneClickCount < REQUIRED_CLICKS) {
+            const remainingClicks = REQUIRED_CLICKS - phoneClickCount;
+            const message = translations[lang].clicksRemaining.replace('{n}', remainingClicks);
+            phoneElement.innerHTML = `
+                <i class="bi bi-telephone"></i>
+                <span>${message}</span>
+            `;
+        } else {
+            const phoneNumber = translations[lang].contactInfo.find(contact => contact.isPhone).text;
+            phoneElement.outerHTML = `
+                <div class="contact-item">
+                    <i class="bi bi-telephone"></i>
+                    <span>${phoneNumber}</span>
+                </div>
+            `;
+        }
+    }
+}
+
+function verifyAnswer(lang, email, emailUrl) {
+    const answerInput = document.querySelector('.math-answer');
+    const resultDiv = document.querySelector('.challenge-result');
+    const challengeContainer = document.querySelector('.email-challenge-container');
+    
+    if (parseInt(answerInput.value) === correctAnswer) {
+        isEmailRevealed = true;
+        emailAddress = email;
+        challengeContainer.innerHTML = `
+            <a href="${emailUrl}" class="contact-success">
+                <span>${email}</span>
+            </a>
+        `;
+    } else {
+        resultDiv.textContent = translations[lang].emailWrong;
+        resultDiv.classList.add('wrong');
+        answerInput.value = '';
+        
+        setTimeout(() => {
+            resultDiv.textContent = '';
+            resultDiv.classList.remove('wrong');
+            const mathProblem = generateMathProblem();
+            challengeContainer.querySelector('.challenge-text').innerHTML = 
+                translations[lang].emailHidden.replace('{sum}', mathProblem);
+        }, 2000);
+    }
+}
+
+function updateSkillsAndContactSection(lang) {
+    // Actualizar skills
+    const skillsContainer = document.querySelector('[data-i18n-skills]');
+    if (skillsContainer) {
+        const skills = translations[lang].skillTags;
+        skillsContainer.innerHTML = skills.map(skill => `
+            <div class="skill-tag">
+                <div class="icon-container">
+                    <i class="bi ${skill.icon}"></i>
+                    ${skill.icon2 ? `<i class="bi ${skill.icon2}"></i>` : ''}
+                </div>
+                <div class="text-container">
+                    <span>${skill.text}</span>
+                    ${skill.subtext ? `<small>${skill.subtext}</small>` : ''}
+                </div>
+            </div>
+        `).join('');
+    }
+
+    // Actualizar contactos
     const contacts = translations[lang].contactInfo;
     const contactContainer = document.querySelector('[data-i18n-contact]');
     
     if (contactContainer) {
         contactContainer.innerHTML = contacts.map(contact => {
-            if (contact.icon === 'bi-telephone') {
+            if (contact.isPhone) {
                 if (phoneClickCount < REQUIRED_CLICKS) {
-                    const remainingClicks = REQUIRED_CLICKS - phoneClickCount;
                     const message = phoneClickCount === 0 
                         ? translations[lang].phoneHidden 
-                        : translations[lang].clicksRemaining.replace('{n}', remainingClicks);
+                        : translations[lang].clicksRemaining.replace('{n}', REQUIRED_CLICKS - phoneClickCount);
                     
                     return `
                         <div class="contact-item phone-hidden" onclick="handlePhoneClick('${lang}')">
@@ -75,30 +144,19 @@ function updatePhoneElement(lang) {
                         </div>
                     `;
                 }
-            }
-            
-            return `
-                ${contact.url ? `<a href="${contact.url}" target="_blank" class="contact-item">` : '<div class="contact-item">'}
-                    <i class="bi ${contact.icon}"></i>
-                    <span>${contact.text}</span>
-                ${contact.url ? '</a>' : '</div>'}
-            `;
-        }).join('');
-    }
-}
-
-function handlePhoneClick(lang) {
-    phoneClickCount++;
-    updatePhoneElement(lang);
-}
-
-function updateEmailElement(lang) {
-    const contacts = translations[lang].contactInfo;
-    const contactContainer = document.querySelector('[data-i18n-contact]');
-    
-    if (contactContainer) {
-        contactContainer.innerHTML = contacts.map(contact => {
-            if (contact.icon === 'bi-envelope') {
+            } else if (contact.icon === 'bi-envelope') {
+                if (isEmailRevealed) {
+                    return `
+                        <div class="contact-item email-challenge">
+                            <i class="bi ${contact.icon}"></i>
+                            <div class="email-challenge-container">
+                                <a href="mailto:${emailAddress}" class="contact-success">
+                                    <span>${emailAddress}</span>
+                                </a>
+                            </div>
+                        </div>
+                    `;
+                }
                 const mathProblem = generateMathProblem();
                 return `
                     <div class="contact-item email-challenge">
@@ -123,45 +181,19 @@ function updateEmailElement(lang) {
                         </div>
                     </div>
                 `;
+            } else {
+                return `
+                    ${contact.url ? `<a href="${contact.url}" target="_blank" class="contact-item">` : '<div class="contact-item">'}
+                        <i class="bi ${contact.icon}"></i>
+                        <span>${contact.text}</span>
+                    ${contact.url ? '</a>' : '</div>'}
+                `;
             }
-            
-            return `
-                ${contact.url ? `<a href="${contact.url}" target="_blank" class="contact-item">` : '<div class="contact-item">'}
-                    <i class="bi ${contact.icon}"></i>
-                    <span>${contact.text}</span>
-                ${contact.url ? '</a>' : '</div>'}
-            `;
         }).join('');
     }
 }
 
-function verifyAnswer(lang, email, emailUrl) {
-    const answerInput = document.querySelector('.math-answer');
-    const resultDiv = document.querySelector('.challenge-result');
-    const challengeContainer = document.querySelector('.email-challenge-container');
-    
-    if (parseInt(answerInput.value) === correctAnswer) {
-        challengeContainer.innerHTML = `
-            <a href="${emailUrl}" class="contact-success">
-                <span>${email}</span>
-            </a>
-        `;
-    } else {
-        resultDiv.textContent = translations[lang].emailWrong;
-        resultDiv.classList.add('wrong');
-        answerInput.value = '';
-        
-        setTimeout(() => {
-            resultDiv.textContent = '';
-            resultDiv.classList.remove('wrong');
-            updateEmailElement(lang);
-        }, 2000);
-    }
-}
-
-// Modificar la función changeLanguage para usar updatePhoneElement
 function changeLanguage(lang) {
-    // Traducir textos simples
     const elements = document.querySelectorAll('[data-i18n]');
     elements.forEach(element => {
         const key = element.getAttribute('data-i18n');
@@ -170,56 +202,19 @@ function changeLanguage(lang) {
         }
     });
 
-    // Traducir listas
-    const lists = document.querySelectorAll('[data-i18n-list]');
-    lists.forEach(list => {
-        const key = list.getAttribute('data-i18n-list');
+    // Actualizar listas si existen
+    const listElements = document.querySelectorAll('[data-i18n-list]');
+    listElements.forEach(element => {
+        const key = element.getAttribute('data-i18n-list');
         if (translations[lang][key]) {
-            list.innerHTML = translations[lang][key]
+            element.innerHTML = translations[lang][key]
                 .map(item => `<li>${item}</li>`)
                 .join('');
         }
     });
 
-    // Actualizar alt de imágenes
-    const images = document.querySelectorAll('[data-i18n-alt]');
-    images.forEach(img => {
-        const key = img.getAttribute('data-i18n-alt');
-        if (translations[lang][key]) {
-            img.alt = translations[lang][key];
-        }
-    });
-
-    // Actualizar skills
-    const skillsContainer = document.querySelector('[data-i18n-skills]');
-    if (skillsContainer) {
-        const skills = translations[lang].skillTags;
-        skillsContainer.innerHTML = skills.map(skill => `
-            <div class="skill-tag">
-                <div class="icon-container">
-                    <i class="bi ${skill.icon}"></i>
-                    ${skill.icon2 ? `<i class="bi ${skill.icon2}"></i>` : ''}
-                </div>
-                <div class="text-container">
-                    <span>${skill.text}</span>
-                    ${skill.subtext ? `<small>${skill.subtext}</small>` : ''}
-                </div>
-            </div>
-        `).join('');
-    }
-
-    // Actualizar contacto usando la nueva función
-    updatePhoneElement(lang);
-    updateEmailElement(lang);
-
+    updateSkillsAndContactSection(lang);
     localStorage.setItem('language', lang);
-    
-    // Actualizar el texto del botón de tema
-    const themeSwitch = document.getElementById('themeSwitch');
-    const themeSwitchText = themeSwitch.querySelector('span');
-    const html = document.documentElement;
-    const isDark = html.getAttribute('data-theme') === 'dark';
-    themeSwitchText.textContent = isDark ? translations[lang].lightMode : translations[lang].darkMode;
 }
 
 function setInitialLanguage() {
