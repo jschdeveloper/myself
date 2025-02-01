@@ -1011,4 +1011,131 @@ a.contact-item:hover::after {
     .level-text {
         font-size: 0.8rem;
     }
+}
+
+/* Estilos actualizados para la sección de divulgación de IA */
+.ai-disclosure {
+    margin-top: 2rem;
+    padding: 0.8rem;
+    background: var(--card-bg);
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.ai-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 0.75rem;
+    color: var(--secondary-text);
+    opacity: 0.8;
+}
+
+.ai-info i {
+    font-size: 0.9rem;
+    color: var(--primary-color);
+}
+
+.ai-info a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.ai-info a:hover {
+    text-decoration: underline;
+    opacity: 0.8;
+}
+
+/* Ajustes para versión móvil */
+@media (max-width: 768px) {
+    .ai-disclosure {
+        margin-bottom: 60px; /* Espacio para el menú flotante */
+        padding-bottom: 1rem;
+    }
+
+    .ai-info {
+        flex-direction: column;
+        font-size: 0.7rem;
+        padding: 0 0.8rem;
+    }
+
+    /* Asegurarse de que el contenedor principal también tenga margen */
+    .container {
+        margin-bottom: 60px;
+    }
+}
+
+/* Estilos actualizados para el formulario de contacto */
+.contact-form {
+    display: grid;
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.form-group {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: var(--card-bg);
+    color: var(--text-color);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+/* Ajuste específico para el input de teléfono */
+.form-group input[type="tel"] {
+    min-width: 500px;
+    width: 100%;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(var(--primary-color-rgb), 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Ajuste responsivo para el input de teléfono */
+@media (max-width: 768px) {
+    .form-group input[type="tel"] {
+        min-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .form-group input[type="tel"] {
+        min-width: 250px;
+    }
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .form-group input,
+    .form-group textarea {
+        padding: 0.7rem 0.9rem;
+        font-size: 0.95rem;
+    }
 } 
