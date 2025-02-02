@@ -188,8 +188,8 @@ const translations = {
         englishLevel: "Dominio profesional",
         aiDisclosure: "Web creada con",
         aiDisclosure2: "y tecnología IA, sin código manual.",
-        expandAll: "Expandir menú",
-        collapseAll: "Contraer menú"
+        expandAll: "",
+        collapseAll: ""
     },
     en: {
         langES: "ES",
@@ -380,7 +380,7 @@ const translations = {
         englishLevel: "Professional working proficiency",
         aiDisclosure: "Website created with",
         aiDisclosure2: "and AI technology, no manual coding.",
-        expandAll: "Expand menu",
-        collapseAll: "Collapse menu"
+        expandAll: "",
+        collapseAll: ""
     }
 }; 
